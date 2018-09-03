@@ -31,10 +31,12 @@ export class Page extends React.Component {
 		} else {
 			return photos.map(entry => (
 				<div key={entry.id} className="photo">
-					<p>
-						<img src={entry.sizes[0].url} alt="" />
-					</p>
-					<p>{entry.likes.count} ❤</p>
+					<img
+						className="vk-img"
+						src={entry.sizes[0].url}
+						alt="vk-profile-img"
+					/>
+					<span className="likes">{entry.likes.count} ❤</span>
 				</div>
 			))
 		}
@@ -44,11 +46,11 @@ export class Page extends React.Component {
 		const { year, photos } = this.props
 		return (
 			<div className="ib page">
-				<p>{this.renderButtons()}</p>
+				<nav className="main-nav">{this.renderButtons()}</nav>
 				<h3>
 					{year} год [{photos.length}]
 				</h3>
-				{this.renderTemplate()}
+				<div className="photo-wrap">{this.renderTemplate()}</div>
 			</div>
 		)
 	}
